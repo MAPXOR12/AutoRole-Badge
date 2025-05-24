@@ -1,0 +1,31 @@
+const {Manager} = require('../lib');
+const {Client} = require('discord.js');
+const client = new Client({ intents: 32767})
+
+
+let manager = new Manager(client, {
+    DISCORD_EMPLOYEE: "1355530472918225147",
+    PARTNERED_SERVER_OWNER: "1355530472918225147",
+    HYPESQUAD_EVENTS: "1355530472918225147",
+    BUGHUNTER_LEVEL_1: "1355530472918225147",
+    HOUSE_BRAVERY: "1355530472918225147",
+    HOUSE_BRILLIANCE: "1355530472918225147",
+    HOUSE_BALANCE: "1355530472918225147",
+    EARLY_SUPPORTER: "1355530472918225147",
+    TEAM_USER: "1355530472918225147",
+    BUGHUNTER_LEVEL_2: "1355530472918225147",
+    VERIFIED_BOT: "1355530472918225147",
+    EARLY_VERIFIED_BOT_DEVELOPER: "1355530472918225147",
+    DISCORD_CERTIFIED_MODERATOR: "1355530472918225147",
+
+
+})
+client.on("guildMemberAdd", async (member) => {
+    await manager.setRole(member);
+})
+
+client.on("ready", () => {
+    console.log("ready")
+})
+
+client.login("SECRET_TOKEN")
